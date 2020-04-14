@@ -1,0 +1,20 @@
+# Build files and folders
+.gradle/
+build/
+
+# Properties
+local.properties
+
+# Idea
+.idea/
+**/*.iml
+
+# Mac OS
+.DS_Store
+
+.settings
+.project
+.classpath
+.vscode
+Pods
+xcuserdata
