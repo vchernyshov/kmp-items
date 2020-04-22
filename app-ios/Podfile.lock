@@ -1,16 +1,43 @@
 PODS:
+  - Alamofire (5.1.0)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
+  - Differ (1.4.5)
   - MultiPlatformLibrary (0.0.1)
+  - MultiPlatformLibraryItems (0.1.0-beta):
+    - MultiPlatformLibrary
+    - MultiPlatformLibraryItems/core (= 0.1.0-beta)
+    - MultiPlatformLibraryItems/diff (= 0.1.0-beta)
+  - MultiPlatformLibraryItems/core (0.1.0-beta):
+    - MultiPlatformLibrary
+  - MultiPlatformLibraryItems/diff (0.1.0-beta):
+    - Differ
+    - MultiPlatformLibrary
 
 DEPENDENCIES:
+  - AlamofireImage (~> 4.1)
   - MultiPlatformLibrary (from `../app-common`)
+  - MultiPlatformLibraryItems (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
+    - Differ
 
 EXTERNAL SOURCES:
   MultiPlatformLibrary:
     :path: "../app-common"
+  MultiPlatformLibraryItems:
+    :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
+  Differ: 3b6bd78e2b20cc795d9a86f7641d087524e4273e
   MultiPlatformLibrary: 492b50553d46757fed86323937f785e253791815
+  MultiPlatformLibraryItems: 38d48b4bf4d55ccaaf78f456d2809eb32adbc7af
 
-PODFILE CHECKSUM: 4a343b6990ec3d06810522b4492f5fa58c7a9b5c
+PODFILE CHECKSUM: 50afec66f4c3469505de7d34c23be15946299494
 
 COCOAPODS: 1.9.0

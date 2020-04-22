@@ -14,6 +14,8 @@ target 'app-ios' do
   # MultiPlatformLibrary
   # для корректной установки фреймворка нужно сначала скомпилировать котлин библиотеку - compile-kotlin-framework.sh (в корневой директории репозитория)
   pod 'MultiPlatformLibrary', :path => '../app-common'
+  pod 'MultiPlatformLibraryItems', :path => '../'
   # pod 'MultiPlatformLibraryItems', :path => '../'
   # pod 'MultiPlatformLibraryItems', :git => 'https://github.com/vchernyshov/reaktive-pm.git', :tag => 'release/0.1.0-beta'
+  pod 'AlamofireImage', '~> 4.1'
 end
