@@ -37,4 +37,6 @@ dependencies {
     implementation(Deps.Libs.Android.coreKtx.name)
     implementation(Deps.Libs.Android.constraint.name)
     implementation(Deps.Libs.Android.timber.name)
+    implementation("com.github.bumptech.glide:glide:4.11.0")
+    implementation("com.pes.materialcolorpicker:library:1.2.0")
 }

@@ -10,4 +10,30 @@
         android:layout_gravity="center"
         android:text="Hello world" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/simpleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="Simple example" />
+
+        <Button
+            android:id="@+id/payloadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="Payload example" />
+
+    </LinearLayout>
+
 </FrameLayout>
