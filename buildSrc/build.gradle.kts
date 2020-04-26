@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.71")
-    implementation("com.android.tools.build:gradle:4.0.0-beta04")
+    implementation("com.android.tools.build:gradle:4.0.0-beta05")
     implementation("dev.icerock:mobile-multiplatform:0.6.1")
 }
 
