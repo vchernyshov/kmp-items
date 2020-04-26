@@ -26,13 +26,13 @@ class Example1Cell: UICollectionViewCell {
     }
 }
 
-class Example1Delegate: CellDelegate<ExampleItem1, Example1Cell> {
+class Example1Delegate: GenericDelegate<ExampleItem1, Example1Cell> {
     
-    override func nibName() -> String {
+    override func xibName() -> String {
         return "Example1Cell"
     }
-        
-    override func onBindViewCell(item: ExampleItem1, cell: Example1Cell) {
+
+    override func bind(items: [Item], item: ExampleItem1, position: Int64, cell: Example1Cell) {
         cell.imageView.af.setImage(withURL: URL(string: item.icon)!)
         cell.textView.text = item.text
         cell.deleteCallback = {

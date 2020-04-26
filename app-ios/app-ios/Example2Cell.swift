@@ -16,12 +16,12 @@ class Example2Cell: UICollectionViewCell {
     @IBOutlet weak var textView2: UILabel!
 }
 
-class Example2Delegate: CellDelegate<ExampleItem2, Example2Cell> {
-    override func nibName() -> String {
+class Example2Delegate: GenericDelegate<ExampleItem2, Example2Cell> {
+    override func xibName() -> String {
         return "Example2Cell"
     }
     
-    override func onBindViewCell(item: ExampleItem2, cell: Example2Cell) {
+    override func bind(items: [Item], item: ExampleItem2, position: Int64, cell: Example2Cell) {
         cell.imageView.af.setImage(withURL: URL(string: item.icon)!)
         cell.textView1.text = item.text1
         cell.textView2.text = item.text2

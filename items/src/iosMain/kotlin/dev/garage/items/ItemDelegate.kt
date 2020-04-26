@@ -1,6 +1,8 @@
 package dev.garage.items
 
+import platform.Foundation.NSBundle
 import platform.UIKit.UINib
+import platform.darwin.NSInteger
 
 actual abstract class ItemDelegate {
 
@@ -9,14 +11,14 @@ actual abstract class ItemDelegate {
      */
     lateinit var eventListener: ItemEventListener
 
-    abstract fun nibName(): String
+    abstract fun xibName(): String
 
     open fun <View, Cell> registerCellIn(view: ItemsView<View, Cell>, reusableId: String) {
-        val nib = UINib.nibWithNibName(nibName(), null)
+        val nib = UINib.nibWithNibName(xibName(), NSBundle.bundleWithIdentifier(reusableId))
         view.register(nib, reusableId)
     }
 
-    open fun <Cell> bindCell(item: Item, cell: Cell) {
+    open fun <Cell> onBindViewCell(items: List<Item>, position: NSInteger, cell: Cell) {
 
     }
 

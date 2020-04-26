@@ -7,7 +7,7 @@ interface ItemsAdapter {
 
     var items: List<Item>
 
-    fun setItemEventListener(listener: ItemEventListener)
+    fun setItemEventListener(listener: ItemEventListener?)
 }
 
 fun create(
@@ -24,7 +24,7 @@ fun create(
                 innerAdapter.items = value
             }
 
-        override fun setItemEventListener(listener: ItemEventListener) {
+        override fun setItemEventListener(listener: ItemEventListener?) {
             innerAdapter.listener = listener
         }
     }
@@ -57,7 +57,7 @@ fun create(
                 innerAdapter.items = value
             }
 
-        override fun setItemEventListener(listener: ItemEventListener) {
+        override fun setItemEventListener(listener: ItemEventListener?) {
             innerAdapter.listener = listener
         }
     }
