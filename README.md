@@ -1,7 +1,7 @@
 # KotlinMultiPlatform Items
 This is multiplatform solution to create list based interfaces from common code.
 
-Original concept proposed by Hannes Dorfmann in [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).
+Original concept proposed by Hannes Dorfmann in [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).  
 This version is multiplatform implementation of modified [solution](https://github.com/nullgr/app-core/tree/master/core-adapter).
 
 ## Installation
@@ -22,7 +22,7 @@ data class ExampleItem1(
 ```
 
 ### Platform code:
-Each platform need to define: ```ItemDelegate``` for each ```Item```, ```DelegatesFactory``` and crete ```ItemsAdapter``` 
+Each platform need to define: ```ItemDelegate``` for ```Item```, ```DelegatesFactory``` and create ```ItemsAdapter``` 
 
 ### Android platform:
 1. ```ItemDelegate```:  
