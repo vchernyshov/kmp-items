@@ -15,7 +15,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "KMP Items Sample"
         helloView.text = HelloKt.hello()
+    }
+    
+    @IBAction func onCollectionSimpleSampleClicked(_ sender: UIButton) {
+        navigationController?.pushViewController(CollectionViewController.newInstance(true), animated: true)
+    }
+    
+    @IBAction func onCollectionDiffableSampleClicked(_ sender: UIButton) {
+        navigationController?.pushViewController(CollectionViewController.newInstance(false), animated: true)
+    }
+    
+    @IBAction func onTableSimpleSampleClicked(_ sender: UIButton) {
+        navigationController?.pushViewController(TableViewController.newInstance(true), animated: true)
+    }
+    
+    @IBAction func onTableDiffableSampleClicked(_ sender: UIButton) {
+        navigationController?.pushViewController(TableViewController.newInstance(false), animated: true)
     }
 }
 

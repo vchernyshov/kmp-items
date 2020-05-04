@@ -9,19 +9,19 @@
 import UIKit
 import MultiPlatformLibrary
 
-class Example2Cell: UICollectionViewCell {
+class Example2CollectionViewCell: UICollectionViewCell {
         
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView1: UILabel!
     @IBOutlet weak var textView2: UILabel!
 }
 
-class Example2Delegate: GenericDelegate<ExampleItem2, Example2Cell> {
+class Example2CollectionViewDelegate: GenericDelegate<ExampleItem2, Example2CollectionViewCell> {
     override func xibName() -> String {
-        return "Example2Cell"
+        return "Example2CollectionViewCell"
     }
     
-    override func bind(items: [Item], item: ExampleItem2, position: Int64, cell: Example2Cell) {
+    override func bind(items: [Item], item: ExampleItem2, position: Int64, cell: Example2CollectionViewCell) {
         cell.imageView.af.setImage(withURL: URL(string: item.icon)!)
         cell.textView1.text = item.text1
         cell.textView2.text = item.text2

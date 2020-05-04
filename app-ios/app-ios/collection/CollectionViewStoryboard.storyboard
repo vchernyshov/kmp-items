@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Collection View Controller-->
+        <scene sceneID="3wE-0t-SL9">
+            <objects>
+                <viewController storyboardIdentifier="CollectionViewStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nSI-Nn-dq1" customClass="CollectionViewController" customModule="app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vs0-HI-yPh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PEz-Px-xe6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SFx-df-iD0">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V4E-9G-8Jq">
+                                <rect key="frame" x="10" y="832" width="394" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-qv-Zgp">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                        <state key="normal" title="Shuffle"/>
+                                        <connections>
+                                            <action selector="onSuffleClicked:" destination="nSI-Nn-dq1" eventType="touchUpInside" id="sf7-5P-9YX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUm-Lw-bGj">
+                                        <rect key="frame" x="197" y="0.0" width="197" height="30"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="onRefreshClicked:" destination="nSI-Nn-dq1" eventType="touchUpInside" id="0YQ-rg-u0N"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PEz-Px-xe6" firstAttribute="top" secondItem="FaD-fY-COu" secondAttribute="top" id="4Zf-ms-deG"/>
+                            <constraint firstItem="FaD-fY-COu" firstAttribute="trailing" secondItem="PEz-Px-xe6" secondAttribute="trailing" id="D1P-Lx-3is"/>
+                            <constraint firstItem="V4E-9G-8Jq" firstAttribute="leading" secondItem="FaD-fY-COu" secondAttribute="leading" constant="10" id="LZb-5l-7eg"/>
+                            <constraint firstItem="FaD-fY-COu" firstAttribute="bottom" secondItem="V4E-9G-8Jq" secondAttribute="bottom" id="WWs-6M-kMP"/>
+                            <constraint firstItem="PEz-Px-xe6" firstAttribute="leading" secondItem="FaD-fY-COu" secondAttribute="leading" id="aey-zr-bUC"/>
+                            <constraint firstItem="FaD-fY-COu" firstAttribute="trailing" secondItem="V4E-9G-8Jq" secondAttribute="trailing" constant="10" id="lSz-Yy-mps"/>
+                            <constraint firstItem="V4E-9G-8Jq" firstAttribute="top" secondItem="PEz-Px-xe6" secondAttribute="bottom" constant="10" id="qYr-V2-8rm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FaD-fY-COu"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="PEz-Px-xe6" id="Xdc-2X-ciw"/>
+                        <outlet property="refreshView" destination="dUm-Lw-bGj" id="BJg-lQ-t7A"/>
+                        <outlet property="shuffleView" destination="gR4-qv-Zgp" id="oVP-4a-1yr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1N-yO-cD3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181.15942028985509" y="-115.17857142857142"/>
+        </scene>
+    </scenes>
+</document>

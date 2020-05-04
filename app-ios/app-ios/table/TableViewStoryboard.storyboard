@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="twn-96-AN0">
+            <objects>
+                <viewController storyboardIdentifier="TableViewStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N92-O9-oim" customClass="TableViewController" customModule="app_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfr-oh-0aD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FEA-cn-aSh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <sections/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lhp-1H-LQh">
+                                <rect key="frame" x="0.0" y="832" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPk-yY-M4G">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                        <state key="normal" title="Shuffle"/>
+                                        <connections>
+                                            <action selector="onShuffleClicked:" destination="N92-O9-oim" eventType="touchUpInside" id="cc8-xV-2HW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofM-cT-bla">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="onRefreshClicked:" destination="N92-O9-oim" eventType="touchUpInside" id="UXn-io-b4v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lhp-1H-LQh" firstAttribute="top" secondItem="FEA-cn-aSh" secondAttribute="bottom" constant="10" id="EBs-Rq-zQI"/>
+                            <constraint firstItem="b1q-iS-XFR" firstAttribute="bottom" secondItem="lhp-1H-LQh" secondAttribute="bottom" id="Gu3-MC-EZS"/>
+                            <constraint firstItem="FEA-cn-aSh" firstAttribute="leading" secondItem="b1q-iS-XFR" secondAttribute="leading" id="KCi-Jj-4hi"/>
+                            <constraint firstItem="b1q-iS-XFR" firstAttribute="trailing" secondItem="lhp-1H-LQh" secondAttribute="trailing" id="RN2-6i-uQV"/>
+                            <constraint firstItem="lhp-1H-LQh" firstAttribute="leading" secondItem="b1q-iS-XFR" secondAttribute="leading" id="YiA-Vl-EeA"/>
+                            <constraint firstItem="FEA-cn-aSh" firstAttribute="top" secondItem="b1q-iS-XFR" secondAttribute="top" id="cKC-fk-laI"/>
+                            <constraint firstItem="b1q-iS-XFR" firstAttribute="trailing" secondItem="FEA-cn-aSh" secondAttribute="trailing" id="cNr-b1-Xnk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b1q-iS-XFR"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="FEA-cn-aSh" id="fbz-rZ-GMs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZI4-Wu-Bmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="104"/>
+        </scene>
+    </scenes>
+</document>
