@@ -120,3 +120,110 @@ class SimpleExampleActivity : AppCompatActivity() {
 Samples available in ```app-android``` module: [simple](https://github.com/vchernyshov/kmp-items/blob/master/app-android/src/main/java/dev/garage/items/app/SimpleExampleActivity.kt), [with payloads](https://github.com/vchernyshov/kmp-items/blob/master/app-android/src/main/java/dev/garage/items/app/PayloadExampleActivity.kt)   
 
 ### iOS platform: 
+iOS implementation was inspired by [moko-units](https://github.com/icerockdev/moko-units)   
+1. ```ItemDelegate```:  
+```swift
+class Example1TableViewDelegate: GenericDelegate<ExampleItem1, Example1TableViewCell> {
+    
+    override func xibName() -> String {
+        return "Example1TableViewCell"
+    }
+
+    override func bind(items: [Item], item: ExampleItem1, position: Int64, cell: Example1TableViewCell) {
+        cell.iconView.af.setImage(withURL: URL(string: item.icon)!)
+        cell.textView.text = item.text
+    }
+}
+```  
+2. ```Cell```
+```swift
+class Example1TableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var textView: UILabel!
+}
+```
+3. ```DelegatesFactory```:
+```swift
+class ExampleTableViewFactory: DelegatesFactory {
+    func create(item: Item) -> ItemDelegate? {
+        if item is ExampleItem1 {
+            return Example1TableViewDelegate()
+        }
+        if item is ExampleItem2 {
+            return Example2TableViewDelegate()
+        }
+        if item is ExampleItem3 {
+            return Example3TableViewDelegate()
+        }
+        return nil
+    }
+}
+```
+3. iOS version supports ```default``` and ```diffable``` version of ```ItemsAdapter```:
+```swift
+class TableViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var adapter: ItemsAdapter!
+          
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // default
+        adapter = ItemsAdapterKt.default(for: tableView, with: ExampleTableViewFactory())
+        // diffable
+        // adapter = ItemsAdapterKt.diffable(for: tableView, with: ExampleTableViewFactory())
+    }
+}
+```
+#### Handle item events:
+Each ```ItemDelegate``` has ```ItemEventListener``` reference.   
+```swift
+class Example1TableViewCell: UITableViewCell {
+        
+    var deleteCallback: (() -> ())!
+    
+    @IBAction func onDeleteButtonClicked(_ sender: UIButton) {
+        deleteCallback()
+    }
+}
+
+class Example1TableViewDelegate: GenericDelegate<ExampleItem1, Example1TableViewCell> {
+    
+    override func bind(items: [Item], item: ExampleItem1, position: Int64, cell: Example1TableViewCell) {
+        cell.deleteCallback = {
+            self.sendEvent(event: DeleteItemEvent(item: item))
+        }
+    }
+}
+```
+
+Receive events:  
+```swift
+class TableViewController: UIViewController, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var adapter: ItemsAdapter!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        adapter.setItemEventListener(listener: { event in
+            if let clickedEvent = event as? ItemClicked {
+                self.showToast(message: "Clicked \(clickedEvent.item.uniqueProperty)")
+            }
+            if let deleteEvent = event as? DeleteItemEvent {
+                self.holder.onDeleteEvent(event: deleteEvent)
+            }
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        adapter.didSelectItem(indexPath: indexPath)
+    }
+}
+```
+
+Samples available in ```app-ios``` module: [TableView](https://github.com/vchernyshov/kmp-items/blob/master/app-ios/app-ios/table/TableViewController.swift), [CollectionView](https://github.com/vchernyshov/kmp-items/blob/master/app-ios/app-ios/collection/CollectionViewController.swift)
