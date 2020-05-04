@@ -1,13 +1,19 @@
 package dev.garage.items
 
+import platform.Foundation.NSIndexPath
 import platform.UIKit.UICollectionView
 import platform.UIKit.UITableView
+import platform.UIKit.item
 
 interface ItemsAdapter {
 
     var items: List<Item>
 
     fun setItemEventListener(listener: ItemEventListener?)
+
+    fun setItemEventListener(listener: ((ItemEvent) -> Unit)?)
+
+    fun didSelectItem(indexPath: NSIndexPath)
 }
 
 fun create(
@@ -26,6 +32,18 @@ fun create(
 
         override fun setItemEventListener(listener: ItemEventListener?) {
             innerAdapter.listener = listener
+        }
+
+        override fun setItemEventListener(listener: ((ItemEvent) -> Unit)?) {
+            innerAdapter.listener = object: ItemEventListener {
+                override fun onItemEvent(event: ItemEvent) {
+                    listener?.invoke(event)
+                }
+            }
+        }
+
+        override fun didSelectItem(indexPath: NSIndexPath) {
+            innerAdapter.listener?.onItemEvent(ItemClicked(items[indexPath.item.toInt()]))
         }
     }
 
@@ -59,6 +77,18 @@ fun create(
 
         override fun setItemEventListener(listener: ItemEventListener?) {
             innerAdapter.listener = listener
+        }
+
+        override fun setItemEventListener(listener: ((ItemEvent) -> Unit)?) {
+            innerAdapter.listener = object: ItemEventListener {
+                override fun onItemEvent(event: ItemEvent) {
+                    listener?.invoke(event)
+                }
+            }
+        }
+
+        override fun didSelectItem(indexPath: NSIndexPath) {
+            innerAdapter.listener?.onItemEvent(ItemClicked(items[indexPath.item.toInt()]))
         }
     }
 
