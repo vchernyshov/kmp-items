@@ -160,7 +160,7 @@ class ExampleTableViewFactory: DelegatesFactory {
     }
 }
 ```
-3. iOS version supports ```default``` and ```diffable``` version of ```ItemsAdapter```:
+4. iOS version supports ```default``` and ```diffable``` version of ```ItemsAdapter```:
 ```swift
 class TableViewController: UIViewController {
     
@@ -174,6 +174,10 @@ class TableViewController: UIViewController {
         adapter = ItemsAdapterKt.default(for: tableView, with: ExampleTableViewFactory())
         // diffable
         // adapter = ItemsAdapterKt.diffable(for: tableView, with: ExampleTableViewFactory())
+    }
+
+    func onItemsReceived(items: List<Item>) {
+        adapter.items = items
     }
 }
 ```
