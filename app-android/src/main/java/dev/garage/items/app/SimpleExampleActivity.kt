@@ -17,6 +17,7 @@ class SimpleExampleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAdapterExampleBinding
     private lateinit var adapter: ItemsAdapter
+    private lateinit var holder: ItemsHolder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,7 @@ class SimpleExampleActivity : AppCompatActivity() {
         setContentView(binding.root)
         title = "Simple example"
 
+        holder = ItemsHolder()
         adapter = ItemsAdapter(ExampleDelegatesFactory, object : ItemEventListener {
             override fun onItemEvent(event: ItemEvent) {
                 if (event is ItemClicked) {
@@ -33,7 +35,7 @@ class SimpleExampleActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else if (event is DeleteItemEvent) {
-                    ItemsHolder.onDeleteEvent(event)
+                    holder.onDeleteEvent(event)
                 }
             }
         })
@@ -48,23 +50,23 @@ class SimpleExampleActivity : AppCompatActivity() {
                 ).apply { setDrawable(getDrawable(R.drawable.item_devider)!!) }
             )
             shuffleButton.setOnClickListener {
-                ItemsHolder.onShuffle()
+                holder.onShuffle()
             }
             refreshButton.setOnClickListener {
-                ItemsHolder.onRefresh()
+                holder.onRefresh()
             }
         }
     }
 
     override fun onResume() {
         super.onResume()
-        ItemsHolder.listener = {
+        holder.listener = {
             adapter.submitList(it)
         }
     }
 
     override fun onPause() {
         super.onPause()
-        ItemsHolder.listener = null
+        holder.listener = null
     }
 }
