@@ -8,7 +8,7 @@ import kotlin.native.concurrent.ThreadLocal
 import kotlin.random.Random
 
 @ThreadLocal
-object ItemsHolder {
+class ItemsHolder {
     private val URLS = mutableListOf<String>().apply {
         repeat(30) {
             add("https://i.picsum.photos/id/${1015 + it}/300/300.jpg")
@@ -58,12 +58,12 @@ object ItemsHolder {
         notifyListener()
     }
 
-    private fun notifyListener() {
-        listener?.invoke(items)
-    }
-
     fun onRefresh() {
         items = original
         notifyListener()
+    }
+
+    private fun notifyListener() {
+        listener?.invoke(items)
     }
 }
