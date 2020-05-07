@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'MultiPlatformLibraryItems'
-    spec.version                  = '0.1.0-beta'
+    spec.version                  = '0.0.1-alpha'
     spec.homepage                 = 'https://github.com/vchernyshov/kmp-items'
     spec.source                   = { :git => "https://github.com/vchernyshov/kmp-items.git", :tag => "release/#{spec.version}" }
     spec.authors                  = 'Garage Development'
