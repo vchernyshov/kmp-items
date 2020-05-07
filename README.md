@@ -1,10 +1,36 @@
 # KotlinMultiPlatform Items
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [ ![Download](https://api.bintray.com/packages/garage-dev/kmp/reaktive-pm/images/download.svg) ](https://bintray.com/garage-dev/kmp/kmp-items/_latestVersion) ![kotlin-version](https://img.shields.io/badge/kotlin-1.3.71-orange)
 This is multiplatform solution to create list based interfaces from common code.
 
 Original concept proposed by Hannes Dorfmann in [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates).  
 This version is multiplatform implementation of modified [solution](https://github.com/nullgr/app-core/tree/master/core-adapter).
 
 ## Installation
+root build.gradle
+```groovy
+allprojects {
+    repositories {
+        maven { url = "https://dl.bintray.com/garage-dev/kmp" }
+    }
+}
+```
+
+project build.gradle
+```groovy
+dependencies {
+    commonMainApi("dev.garage.kmp:items:0.0.1-alpha")
+}
+```
+
+settings.gradle
+```groovy
+enableFeaturePreview("GRADLE_METADATA")
+```
+
+Podfile for iOS app, not sure but should work
+```
+pod 'MultiPlatformLibraryItems', :git => 'https://github.com/vchernyshov/kmp-items.git', :tag => 'release/0.0.1-alpha'
+```
 
 ## How to use
 ### Common code:
